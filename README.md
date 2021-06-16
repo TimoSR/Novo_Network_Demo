@@ -1,1 +1,1 @@
-# Novo_Network_Demo
+# Novo_Networked_XR_Demo
