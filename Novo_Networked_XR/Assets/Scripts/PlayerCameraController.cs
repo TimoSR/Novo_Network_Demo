@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Cinemachine;
@@ -15,8 +16,25 @@ public class PlayerCameraController : NetworkBehaviour
     [SerializeField] private Transform playerTransform = null;
     [SerializeField] private CinemachineVirtualCamera virtualCamera = null;
 
-    private GameInput _input;
+    private Controls _input;
+
+    private Controls Input
+    {
+        get
+        {
+            if (_input != null) { return _input;}
+
+            return _input = new Controls();
+        }
+    }
+
     private CinemachineTransposer _transposer;
+
+    [ClientCallback]
+    private void OnEnable() => Input.Enable();
+
+    [ClientCallback]
+    private void OnDisable() => Input.Disable();
 
     public override void OnStartAuthority()
     {
@@ -25,9 +43,21 @@ public class PlayerCameraController : NetworkBehaviour
         virtualCamera.gameObject.SetActive(true);
 
         enabled = true;
-
-        _input = new GameInput();
-        _input.Player.Look.performed += context => Look 
- 
+        
+        Input.Player.Look.performed += ctx => Look(ctx.ReadValue<Vector2>());
     }
+    
+    private void Look(Vector2 lookAxis)
+    {
+        float deltaTime = Time.deltaTime;
+
+        // Can't go below maxFollowOffset x or above maxFollowOffset y. 
+        float followOffset = Mathf.Clamp(_transposer.m_FollowOffset.y - (lookAxis.y * cameraVelocity.y * deltaTime), maxfollowOffset.x, maxfollowOffset.y);
+
+        _transposer.m_FollowOffset.y = followOffset;
+
+        playerTransform.Rotate(0f, lookAxis.x * cameraVelocity.x * deltaTime, 0f);
+
+    }
+    
 }

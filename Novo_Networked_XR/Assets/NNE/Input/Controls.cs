@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/NNE/Input/GameInput.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/NNE/Input/Controls.inputactions'
 
 using System;
 using System.Collections;
@@ -6,13 +6,13 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-public class @GameInput : IInputActionCollection, IDisposable
+public class @Controls : IInputActionCollection, IDisposable
 {
     public InputActionAsset asset { get; }
-    public @GameInput()
+    public @Controls()
     {
         asset = InputActionAsset.FromJson(@"{
-    ""name"": ""GameInput"",
+    ""name"": ""Controls"",
     ""maps"": [
         {
             ""name"": ""Player"",
@@ -928,8 +928,8 @@ public class @GameInput : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_TargetPosition;
     public struct PlayerActions
     {
-        private @GameInput m_Wrapper;
-        public PlayerActions(@GameInput wrapper) { m_Wrapper = wrapper; }
+        private @Controls m_Wrapper;
+        public PlayerActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
@@ -991,8 +991,8 @@ public class @GameInput : IInputActionCollection, IDisposable
     private readonly InputAction m_UI_TrackedDeviceOrientation;
     public struct UIActions
     {
-        private @GameInput m_Wrapper;
-        public UIActions(@GameInput wrapper) { m_Wrapper = wrapper; }
+        private @Controls m_Wrapper;
+        public UIActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Navigate => m_Wrapper.m_UI_Navigate;
         public InputAction @Submit => m_Wrapper.m_UI_Submit;
         public InputAction @Cancel => m_Wrapper.m_UI_Cancel;
