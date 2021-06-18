@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/NNE/Input/Basic_Input.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/NNE/Input/GameInput.inputactions'
 
 using System;
 using System.Collections;
@@ -6,13 +6,13 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-public class @Basic_Input : IInputActionCollection, IDisposable
+public class @GameInput : IInputActionCollection, IDisposable
 {
     public InputActionAsset asset { get; }
-    public @Basic_Input()
+    public @GameInput()
     {
         asset = InputActionAsset.FromJson(@"{
-    ""name"": ""Basic_Input"",
+    ""name"": ""GameInput"",
     ""maps"": [
         {
             ""name"": ""Player"",
@@ -39,6 +39,14 @@ public class @Basic_Input : IInputActionCollection, IDisposable
                     ""type"": ""Button"",
                     ""id"": ""6122d0db-d769-4667-995e-2904d281a5a0"",
                     ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""TargetPosition"",
+                    ""type"": ""Button"",
+                    ""id"": ""996fcf07-1fed-4c09-8865-6490a501c6c2"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
                 }
@@ -261,6 +269,17 @@ public class @Basic_Input : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""XR"",
                     ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4148fa72-addf-41c1-a058-81db6519e152"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TargetPosition"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -841,6 +860,7 @@ public class @Basic_Input : IInputActionCollection, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
+        m_Player_TargetPosition = m_Player.FindAction("TargetPosition", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -905,13 +925,15 @@ public class @Basic_Input : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Fire;
+    private readonly InputAction m_Player_TargetPosition;
     public struct PlayerActions
     {
-        private @Basic_Input m_Wrapper;
-        public PlayerActions(@Basic_Input wrapper) { m_Wrapper = wrapper; }
+        private @GameInput m_Wrapper;
+        public PlayerActions(@GameInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
+        public InputAction @TargetPosition => m_Wrapper.m_Player_TargetPosition;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -930,6 +952,9 @@ public class @Basic_Input : IInputActionCollection, IDisposable
                 @Fire.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
                 @Fire.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
                 @Fire.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
+                @TargetPosition.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTargetPosition;
+                @TargetPosition.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTargetPosition;
+                @TargetPosition.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTargetPosition;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -943,6 +968,9 @@ public class @Basic_Input : IInputActionCollection, IDisposable
                 @Fire.started += instance.OnFire;
                 @Fire.performed += instance.OnFire;
                 @Fire.canceled += instance.OnFire;
+                @TargetPosition.started += instance.OnTargetPosition;
+                @TargetPosition.performed += instance.OnTargetPosition;
+                @TargetPosition.canceled += instance.OnTargetPosition;
             }
         }
     }
@@ -963,8 +991,8 @@ public class @Basic_Input : IInputActionCollection, IDisposable
     private readonly InputAction m_UI_TrackedDeviceOrientation;
     public struct UIActions
     {
-        private @Basic_Input m_Wrapper;
-        public UIActions(@Basic_Input wrapper) { m_Wrapper = wrapper; }
+        private @GameInput m_Wrapper;
+        public UIActions(@GameInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Navigate => m_Wrapper.m_UI_Navigate;
         public InputAction @Submit => m_Wrapper.m_UI_Submit;
         public InputAction @Cancel => m_Wrapper.m_UI_Cancel;
@@ -1102,6 +1130,7 @@ public class @Basic_Input : IInputActionCollection, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
+        void OnTargetPosition(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

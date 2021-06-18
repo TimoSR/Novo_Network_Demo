@@ -1,5 +1,5 @@
 {
-    "name": "Basic_Input",
+    "name": "GameInput",
     "maps": [
         {
             "name": "Player",
@@ -26,6 +26,14 @@
                     "type": "Button",
                     "id": "6122d0db-d769-4667-995e-2904d281a5a0",
                     "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "TargetPosition",
+                    "type": "Button",
+                    "id": "996fcf07-1fed-4c09-8865-6490a501c6c2",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
                 }
@@ -248,6 +256,17 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4148fa72-addf-41c1-a058-81db6519e152",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TargetPosition",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
