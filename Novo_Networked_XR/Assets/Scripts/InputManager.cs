@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class InputManager : NetworkBehaviour
 {
@@ -22,7 +23,9 @@ public class InputManager : NetworkBehaviour
         {
             Instance = this;
         }
+        
         _playerControls = new Controls();
+
     }
 
     [ClientCallback]
