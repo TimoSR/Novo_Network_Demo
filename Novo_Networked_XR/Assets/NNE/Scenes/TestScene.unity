@@ -122,6 +122,29 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: a2b2c758a7434c044946677adf1047de, type: 2}
+--- !u!1 &191132135 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3361993150186441782, guid: c0b5b81b4027fe848a79f05abc0fa7de,
+    type: 3}
+  m_PrefabInstance: {fileID: 3361993150037802449}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &191132136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191132135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 86b03b4aeab5a774599f9bc4c3de93d4, type: 2}
 --- !u!1 &211700182
 GameObject:
   m_ObjectHideFlags: 0
@@ -2292,7 +2315,7 @@ Transform:
   m_GameObject: {fileID: 1852684369}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 1, z: 1}
+  m_LocalScale: {x: 1000, y: 1000, z: 1000}
   m_Children: []
   m_Father: {fileID: 962609345}
   m_RootOrder: 0
@@ -2584,6 +2607,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 3361993150186441784, guid: c0b5b81b4027fe848a79f05abc0fa7de,
+        type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3361993150186441784, guid: c0b5b81b4027fe848a79f05abc0fa7de,
+        type: 3}
+      propertyPath: m_Antialiasing
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3361993150186441784, guid: c0b5b81b4027fe848a79f05abc0fa7de,
+        type: 3}
+      propertyPath: m_RenderShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3361993150186441786, guid: c0b5b81b4027fe848a79f05abc0fa7de,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3361993150186441786, guid: c0b5b81b4027fe848a79f05abc0fa7de,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3361993150186441786, guid: c0b5b81b4027fe848a79f05abc0fa7de,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3361993150186441786, guid: c0b5b81b4027fe848a79f05abc0fa7de,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3361993150186441789, guid: c0b5b81b4027fe848a79f05abc0fa7de,
         type: 3}
