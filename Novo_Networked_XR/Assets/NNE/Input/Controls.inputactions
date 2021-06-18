@@ -1,5 +1,5 @@
 {
-    "name": "GameInput",
+    "name": "Controls",
     "maps": [
         {
             "name": "Player",
@@ -33,6 +33,14 @@
                     "name": "TargetPosition",
                     "type": "Button",
                     "id": "996fcf07-1fed-4c09-8865-6490a501c6c2",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "02af45dd-355d-423f-bb5a-f853836c9f90",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
@@ -267,6 +275,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "TargetPosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9efadff3-7df8-4f94-9a68-07e14fe7224f",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
