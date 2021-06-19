@@ -28,7 +28,7 @@ public class PlayerCameraController : NetworkBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
-        virtualCamera.gameObject.SetActive(true);
+        virtualCamera.GetComponent<CinemachineVirtualCamera>().enabled = true;
 
         enabled = true;
 
