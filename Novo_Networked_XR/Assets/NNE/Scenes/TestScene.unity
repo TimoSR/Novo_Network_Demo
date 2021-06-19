@@ -519,6 +519,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 2726a12de508653449577477b5c924f6, type: 2}
+    - target: {fileID: 5430698881199459273, guid: 2a764a722e224a3408c5cd7c4aa9e4a5,
+        type: 3}
+      propertyPath: sceneId
+      value: 1358256696
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a764a722e224a3408c5cd7c4aa9e4a5, type: 3}
 --- !u!4 &803962982 stripped
@@ -599,6 +604,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ed250bdb0e4de654ca49ca2a82416eb3, type: 2}
+    - target: {fileID: 5430698881199459273, guid: 2a764a722e224a3408c5cd7c4aa9e4a5,
+        type: 3}
+      propertyPath: sceneId
+      value: 3107218802
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a764a722e224a3408c5cd7c4aa9e4a5, type: 3}
 --- !u!4 &870267935 stripped
@@ -823,6 +833,7 @@ MonoBehaviour:
   playerSpawnMethod: 0
   spawnPrefabs:
   - {fileID: 2548470587949287306, guid: 607ddcf076713c148aba2322d78ce67c, type: 3}
+  - {fileID: 0}
 --- !u!1 &1045132314
 GameObject:
   m_ObjectHideFlags: 0
@@ -1211,6 +1222,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 40088728a130c8544b3ceab34e58b00d, type: 2}
+    - target: {fileID: 5430698881199459273, guid: 2a764a722e224a3408c5cd7c4aa9e4a5,
+        type: 3}
+      propertyPath: sceneId
+      value: 1087768900
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a764a722e224a3408c5cd7c4aa9e4a5, type: 3}
 --- !u!4 &1481808542 stripped
@@ -1285,6 +1301,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.000015258789
+      objectReference: {fileID: 0}
+    - target: {fileID: 5430698881199459273, guid: 2a764a722e224a3408c5cd7c4aa9e4a5,
+        type: 3}
+      propertyPath: sceneId
+      value: 3134601936
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a764a722e224a3408c5cd7c4aa9e4a5, type: 3}
@@ -1572,6 +1593,11 @@ PrefabInstance:
       propertyPath: sceneId
       value: 788008154
       objectReference: {fileID: 0}
+    - target: {fileID: -752214425320797683, guid: 607ddcf076713c148aba2322d78ce67c,
+        type: 3}
+      propertyPath: m_AssetId
+      value: 607ddcf076713c148aba2322d78ce67c
+      objectReference: {fileID: 0}
     - target: {fileID: 2548470587949287306, guid: 607ddcf076713c148aba2322d78ce67c,
         type: 3}
       propertyPath: m_Name
@@ -1632,10 +1658,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2548470588237412299, guid: 607ddcf076713c148aba2322d78ce67c,
+    - target: {fileID: 7457453666488218465, guid: 607ddcf076713c148aba2322d78ce67c,
         type: 3}
-      propertyPath: m_TagString
-      value: QRCode
+      propertyPath: sceneId
+      value: 2857607786
+      objectReference: {fileID: 0}
+    - target: {fileID: 7494072943630680896, guid: 607ddcf076713c148aba2322d78ce67c,
+        type: 3}
+      propertyPath: sceneId
+      value: 753826684
+      objectReference: {fileID: 0}
+    - target: {fileID: 7494072944597335325, guid: 607ddcf076713c148aba2322d78ce67c,
+        type: 3}
+      propertyPath: sceneId
+      value: 3494348510
+      objectReference: {fileID: 0}
+    - target: {fileID: 7494072944610052485, guid: 607ddcf076713c148aba2322d78ce67c,
+        type: 3}
+      propertyPath: sceneId
+      value: 4015630066
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 607ddcf076713c148aba2322d78ce67c, type: 3}

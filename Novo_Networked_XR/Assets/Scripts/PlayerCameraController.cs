@@ -8,7 +8,6 @@ using UnityEngine;
 public class PlayerCameraController : NetworkBehaviour
 {
     [Header("Camera")]
-    [SerializeField] private Vector2 maxFollowOffset = new Vector2(-1f, 6f);
     [SerializeField] private Vector2 cameraVelocity = new Vector2(4f, 0.25f);
     [SerializeField] private Transform playerTransform = null;
     [SerializeField] private CinemachineVirtualCamera virtualCamera = null;
@@ -45,13 +44,14 @@ public class PlayerCameraController : NetworkBehaviour
 
     }
 
+    [Client]
     private void EndedClick()
     {
-        CmdDetectObject();
+        DetectObject();
     }
 
-    [Command]
-    private void CmdDetectObject()
+    //[Command]
+    private void DetectObject()
     {
         Ray ray = mainCamera.ScreenPointToRay(Controls.Player.TargetPosition.ReadValue<Vector2>());
         RaycastHit hit;
@@ -61,7 +61,13 @@ public class PlayerCameraController : NetworkBehaviour
             if (hit.collider != null)
             {
                 Debug.Log("3D Hit" + hit.collider.tag);
-            }   
+            }
+
+            if (hit.collider.CompareTag("QRCode"))
+            {
+                hit.collider.gameObject.GetComponent<QrCode>().onClickQrCode();
+            }
+            
         }
 
     }
