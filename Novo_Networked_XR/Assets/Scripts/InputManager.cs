@@ -7,12 +7,23 @@ using UnityEngine.InputSystem;
 
 public class InputManager : NetworkBehaviour
 {
+    
+    [Header("Character Input Values")]
+    public Vector2 move;
+    public Vector2 look;
+    public bool jump;
+    public bool sprint;
+    
+    [Header("Mouse Cursor Settings")]
+    public bool cursorLocked = true;
+    public bool cursorInputForLook = true;
+    
     //Singleton 
 
     public static InputManager Instance { get; private set; }
 
-    private Controls _playerControls;
-    
+    public static Controls Controls { get; private set; }
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -24,28 +35,43 @@ public class InputManager : NetworkBehaviour
             Instance = this;
         }
         
-        _playerControls = new Controls();
+        if (Controls != null) { return; }
+        
+        Controls= new Controls();
 
     }
+    
+    [ClientCallback]
+    private void OnEnable() => Controls.Enable();
 
     [ClientCallback]
-    private void OnEnable() => _playerControls.Enable();
+    private void OnDisable() => Controls.Disable();
 
-    [ClientCallback]
-    private void OnDisable() => _playerControls.Disable();
-
-    public Vector2 GetPlayerMovement()
+    private Vector2 GetPlayerMovement()
     {
-        return _playerControls.Player.Move.ReadValue<Vector2>();
+        return Controls.Player.Move.ReadValue<Vector2>();
     }
 
     public Vector2 GetPointerDelta()
     {
-        return _playerControls.Player.Look.ReadValue<Vector2>();
+        return Controls.Player.Look.ReadValue<Vector2>();
     }
 
     public bool PlayerJumped()
     {
-        return _playerControls.Player.Jump.triggered;
+        return Controls.Player.Jump.triggered;
     }
+    public void OnLook(InputValue value)
+    {
+        if(cursorInputForLook)
+        {
+            LookInput(value.Get<Vector2>());
+        }
+    }
+    
+    public void LookInput(Vector2 newLookDirection)
+    {
+        look = newLookDirection;
+    }
+
 }

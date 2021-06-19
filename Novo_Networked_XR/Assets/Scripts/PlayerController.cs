@@ -15,57 +15,48 @@ public class PlayerController : NetworkBehaviour
 {
     [Header("Components")]
     //public NavMeshAgent agent;
-    [SerializeField]
-    private NavMeshAgent agent;
-    
-    [Header("Movement")]
-    public float rotationSpeed = 100;
-    
+    //[SerializeField] private NavMeshAgent agent;
+    [SerializeField] private CharacterController controller = null;
+
     private Vector3 playerVelocity;
     private bool groundedPlayer;
-    private float playerSpeed = 2.0f;
+    private float movementSpeed = 5.0f;
     private float jumpHeight = 1.0f;
     private float gravityValue = -9.81f;
-    private InputManager _inputManager;
     private Transform cameraTransform;
-    private CharacterController controller;
+    private InputManager inputManager;
+    private Vector2 previousInput;
+    private Controls _playerControls;
 
-    [Client]
-    private void Start()
+    public override void OnStartAuthority()
     {
-        // Checking if authority
-        if (!hasAuthority) return;
-        
-        // movement for local player
-        if (!isLocalPlayer) return;
-
         controller = GetComponent<CharacterController>();
-        _inputManager = InputManager.Instance;
-
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
         
+        InputManager.Controls.Player.Move.performed += ctx => SetMovement(ctx.ReadValue<Vector2>());
+        InputManager.Controls.Player.Move.canceled += ctx => ResetMovement();
     }
+
+    [ClientCallback]
+    private void Update() => Move();
+
+    [Client]
+    private void SetMovement(Vector2 movement) => previousInput = movement;
+
+    [Client]
+    private void ResetMovement() => previousInput = Vector2.zero;
     
     [Client]
-    void Update()
+    private void Move()
     {
-        
-        // Checking if authority
-        if (!hasAuthority) return;
-    
-        // movement for local player
-        if (!isLocalPlayer) return;
-    
-        // rotate
-        float horizontal = Input.GetAxis("Horizontal");
-        transform.Rotate(0, horizontal * rotationSpeed * Time.deltaTime, 0);
-    
-        // move
-        float vertical = Input.GetAxis("Vertical");
-        Vector3 forward = transform.TransformDirection(Vector3.forward);
-        agent.velocity = forward * Mathf.Max(vertical, 0) * agent.speed;
-    
+        var transform1 = controller.transform;
+        Vector3 right = transform1.right;
+        Vector3 forward = transform1.forward;
+        right.y = 0f;
+        forward.y = 0f;
+
+        Vector3 movement = right.normalized * previousInput.x + forward.normalized * previousInput.y;
+
+        controller.Move(movement * movementSpeed * Time.deltaTime);
     }
     
     // [Client]
