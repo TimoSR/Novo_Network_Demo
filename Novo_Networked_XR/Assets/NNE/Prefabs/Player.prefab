@@ -356,7 +356,7 @@ GameObject:
   - component: {fileID: 3190862565525702082}
   - component: {fileID: 3881958683630481298}
   - component: {fileID: 5397330932513863951}
-  - component: {fileID: 7616726635408756375}
+  - component: {fileID: 6248389386143389060}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -464,7 +464,7 @@ MonoBehaviour:
   syncInterval: 0.1
   movementSpeed: 5
   controller: {fileID: 7779735869516927012}
---- !u!114 &7616726635408756375
+--- !u!114 &6248389386143389060
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
