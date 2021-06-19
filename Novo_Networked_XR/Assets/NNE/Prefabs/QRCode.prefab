@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1116463048334614011}
   m_Layer: 0
   m_Name: QRCode
-  m_TagString: Untagged
+  m_TagString: QRCode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 1116463048721938233}
   m_Layer: 0
   m_Name: Panel
-  m_TagString: Untagged
+  m_TagString: QRCode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 1116463049064078889}
   m_Layer: 0
   m_Name: Pointer
-  m_TagString: Untagged
+  m_TagString: QRCode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 6579237808443764440}
   m_Layer: 0
   m_Name: Pointer (2)
-  m_TagString: Untagged
+  m_TagString: QRCode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -298,7 +298,7 @@ GameObject:
   - component: {fileID: 8199328057744320126}
   m_Layer: 0
   m_Name: Pointer (1)
-  m_TagString: Untagged
+  m_TagString: QRCode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

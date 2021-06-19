@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
 using Mirror;
@@ -11,6 +12,7 @@ public class PlayerCameraController : NetworkBehaviour
     [SerializeField] private Vector2 cameraVelocity = new Vector2(4f, 0.25f);
     [SerializeField] private Transform playerTransform = null;
     [SerializeField] private CinemachineVirtualCamera virtualCamera = null;
+    private Camera mainCamera;
 
     private Controls controls;
     private Controls Controls
@@ -20,6 +22,11 @@ public class PlayerCameraController : NetworkBehaviour
             if (controls != null) { return controls; }
             return controls = new Controls();
         }
+    }
+
+    private void Awake()
+    {
+        mainCamera = Camera.main;
     }
 
     public override void OnStartAuthority()
@@ -33,6 +40,30 @@ public class PlayerCameraController : NetworkBehaviour
         enabled = true;
 
         Controls.Player.Look.performed += ctx => Look(ctx.ReadValue<Vector2>());
+
+        Controls.Player.Click.performed += _ => EndedClick();
+
+    }
+
+    private void EndedClick()
+    {
+        CmdDetectObject();
+    }
+
+    [Command]
+    private void CmdDetectObject()
+    {
+        Ray ray = mainCamera.ScreenPointToRay(Controls.Player.TargetPosition.ReadValue<Vector2>());
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            if (hit.collider != null)
+            {
+                Debug.Log("3D Hit" + hit.collider.tag);
+            }   
+        }
+
     }
 
     [ClientCallback]
