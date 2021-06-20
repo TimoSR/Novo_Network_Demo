@@ -74,7 +74,7 @@ public class PanelOpener : MonoBehaviour
 
                 for (int i = 1; i < text.Length-1; i++)
                 {
-                    Debug.Log(i);
+                    //Debug.Log(i);
                     
                     if (text[i][2] == _firstCharacter)
                     {
