@@ -444,7 +444,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  maxFollowOffset: {x: -1, y: 6}
   cameraVelocity: {x: 4, y: 0.25}
   playerTransform: {fileID: 6894005016491108448}
   virtualCamera: {fileID: 182294301352509693}

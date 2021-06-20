@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using Mirror;
+using UnityEngine;
+using UnityEngine.Events;
+
+public class Clickable : NetworkBehaviour
+{
+
+    [field: SerializeField] public UnityEvent onClick;
+
+    [Server]
+    public void OnClick()
+    {
+        onClick?.Invoke();
+        Debug.Log("Click registered");
+    }
+
+}

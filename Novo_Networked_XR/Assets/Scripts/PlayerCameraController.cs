@@ -47,11 +47,11 @@ public class PlayerCameraController : NetworkBehaviour
     [Client]
     private void EndedClick()
     {
-        DetectObject();
+        CmdDetectObject();
     }
 
-    //[Command]
-    private void DetectObject()
+    [Command]
+    private void CmdDetectObject()
     {
         Ray ray = mainCamera.ScreenPointToRay(Controls.Player.TargetPosition.ReadValue<Vector2>());
         RaycastHit hit;
@@ -60,16 +60,16 @@ public class PlayerCameraController : NetworkBehaviour
         {
             if (hit.collider != null)
             {
-                Debug.Log("3D Hit" + hit.collider.tag);
+                Debug.Log("3D Raycast Hit" + hit.collider.tag);
+                
+                if (hit.collider.CompareTag("QRCode") || hit.collider.CompareTag("MetaData"))
+                {
+                    hit.collider.gameObject.GetComponent<Clickable>().OnClick();
+                    var id= hit.collider.gameObject.GetComponent<Clickable>().netIdentity.netId;
+                    Debug.Log("Net ID " + id);
+                }
             }
-
-            if (hit.collider.CompareTag("QRCode"))
-            {
-                hit.collider.gameObject.GetComponent<QrCode>().onClickQrCode();
-            }
-            
         }
-
     }
 
     [ClientCallback]
