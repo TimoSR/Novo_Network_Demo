@@ -317,7 +317,6 @@ RectTransform:
   - {fileID: 1618631634}
   - {fileID: 523547216}
   - {fileID: 1242381253}
-  - {fileID: 1877488427}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -483,6 +482,7 @@ GameObject:
   - component: {fileID: 523547219}
   - component: {fileID: 523547218}
   - component: {fileID: 523547217}
+  - component: {fileID: 523547220}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -552,7 +552,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 523547218}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 523547220}
+        m_MethodName: ClosePanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &523547218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -590,6 +601,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 523547215}
   m_CullTransparentMesh: 0
+--- !u!114 &523547220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523547215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3f5abccf53dd554ba29a940458f78c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel: {fileID: 1242381252}
+  closeButton: {fileID: 523547215}
+  crosshair: {fileID: 1618631633}
 --- !u!1 &540103261
 GameObject:
   m_ObjectHideFlags: 0
@@ -1407,7 +1433,8 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.47879946, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1877488427}
   m_Father: {fileID: 383847467}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1464,7 +1491,6 @@ GameObject:
   - component: {fileID: 1371262856}
   - component: {fileID: 1371262855}
   - component: {fileID: 1371262854}
-  - component: {fileID: 1371262857}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1539,18 +1565,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1371262857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1371262853}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d80211a6ab8dea4293fbbfaca61f81b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1381973404
 GameObject:
   m_ObjectHideFlags: 0
@@ -1846,7 +1860,7 @@ GameObject:
   - component: {fileID: 1618631636}
   - component: {fileID: 1618631635}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Crosshair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2112,16 +2126,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1877488426}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 2.088557, z: 1}
   m_Children: []
-  m_Father: {fileID: 383847467}
-  m_RootOrder: 3
+  m_Father: {fileID: 1242381253}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 34}
+  m_AnchoredPosition: {x: 0, y: 71.010956}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1877488428
@@ -3173,6 +3187,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2111147485}
     m_Modifications:
+    - target: {fileID: -7168824782046093765, guid: 1ee8de218b1645048a3e60c56ad36fd0,
+        type: 3}
+      propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8603105532733627938}
+    - target: {fileID: -7168824782046093765, guid: 1ee8de218b1645048a3e60c56ad36fd0,
+        type: 3}
+      propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: -7168824782046093765, guid: 1ee8de218b1645048a3e60c56ad36fd0,
+        type: 3}
+      propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: -4445710856479073309, guid: 1ee8de218b1645048a3e60c56ad36fd0,
         type: 3}
       propertyPath: sceneId
@@ -3238,5 +3267,32 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blue
       objectReference: {fileID: 0}
+    - target: {fileID: 8824285020648749428, guid: 1ee8de218b1645048a3e60c56ad36fd0,
+        type: 3}
+      propertyPath: panel
+      value: 
+      objectReference: {fileID: 1242381252}
+    - target: {fileID: 8824285020648749428, guid: 1ee8de218b1645048a3e60c56ad36fd0,
+        type: 3}
+      propertyPath: closeButton
+      value: 
+      objectReference: {fileID: 523547215}
+    - target: {fileID: 8824285020648749428, guid: 1ee8de218b1645048a3e60c56ad36fd0,
+        type: 3}
+      propertyPath: crosshair
+      value: 
+      objectReference: {fileID: 1618631633}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ee8de218b1645048a3e60c56ad36fd0, type: 3}
+--- !u!114 &8603105532733627938 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8824285020648749428, guid: 1ee8de218b1645048a3e60c56ad36fd0,
+    type: 3}
+  m_PrefabInstance: {fileID: 8603105532733627937}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3f5abccf53dd554ba29a940458f78c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
