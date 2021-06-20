@@ -59,17 +59,21 @@ public class PlayerCameraController : NetworkBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
-            if (hit.collider != null && hit.collider.CompareTag("QRCode"))
+            if (hit.collider != null)
             {
-                Debug.Log("3D Raycast Hit" + hit.collider.tag);
-                hit.collider.gameObject.GetComponent<ClickableQR>().OnClick();
-                var id= hit.collider.gameObject.GetComponent<ClickableQR>().netIdentity.netId;
-                Debug.Log("Net ID " + id);
-                
+
+                if (hit.collider.CompareTag("QRCode"))
+                {
+                    //Debug.Log("3D Raycast Hit" + hit.collider.tag);
+                    hit.collider.gameObject.GetComponent<ClickableQR>().OnClick();
+                    var id= hit.collider.gameObject.GetComponent<ClickableQR>().netIdentity.netId;
+                    //Debug.Log("Net ID " + id);
+                }
+
             }
         }
     }
-    
+
     private void DetectObjectMeta()
     {
         Ray ray = mainCamera.ScreenPointToRay(Controls.Player.TargetPosition.ReadValue<Vector2>());
@@ -77,10 +81,14 @@ public class PlayerCameraController : NetworkBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
-            if (hit.collider != null && hit.collider.CompareTag("MetaData"))
+            if (hit.collider != null)
             {
-                Debug.Log("3D Raycast Hit" + hit.collider.tag);
-                hit.collider.gameObject.GetComponent<ClickableMeta>().OnClick();
+
+                if (hit.collider.CompareTag("MetaData"))
+                {
+                    //Debug.Log("3D Raycast Hit" + hit.collider.tag);
+                    hit.collider.gameObject.GetComponent<ClickableMeta>().OnClick();
+                }
             }
         }
     }

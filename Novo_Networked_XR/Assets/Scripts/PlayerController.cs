@@ -47,7 +47,7 @@ public class PlayerController : NetworkBehaviour
         if(isLocalPlayer) Move();
     }
 
-[Client]
+    [Client]
     private void SetMovement(Vector2 movement) => previousInput = movement;
 
     [Client]

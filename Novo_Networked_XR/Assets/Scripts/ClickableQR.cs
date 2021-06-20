@@ -5,11 +5,11 @@ using Mirror;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ClickableQR : NetworkBehaviour
+public class ClickableQR: NetworkBehaviour
 {
 
     [field: SerializeField] public UnityEvent onClick;
-    
+
     [Server]
     public void OnClick()
     {
@@ -18,3 +18,4 @@ public class ClickableQR : NetworkBehaviour
     }
 
 }
+
