@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -14,7 +15,8 @@ public class PanelOpener : MonoBehaviour
     public GameObject closeButton;
     public GameObject crosshair;
     public TMP_Text textArea;
-    
+    private StringReader strReader;
+
     //Data link
     private readonly string getURL = "https://nnedigitaldesignstorage.blob.core.windows.net/candidatetasks/Metadata.csv?sp=r&st=2021-03-15T09:12:39Z&se=2024-11-05T17:12:39Z&spr=https&sv=2020-02-10&sr=b&sig=oyj3Qyg4W42%2BO0d7YqmjxmKk0k%2BLVmE243ixdLaq3gk%3D";
     
@@ -29,17 +31,7 @@ public class PanelOpener : MonoBehaviour
             crosshair.SetActive(false);
         }
     }
-    
-    public void ClosePanel()
-    {
-        if (panel && closeButton != null)
-        {
-            panel.SetActive(false);
-            closeButton.SetActive(false);
-            crosshair.SetActive(true);
-        }
-    }
-    
+
     //CSV Data Request
     
     IEnumerator GetRequest(string url, Action<UnityWebRequest> callback)
@@ -61,10 +53,16 @@ public class PanelOpener : MonoBehaviour
                 Debug.Log($"{req.error}: {req.downloadHandler.text}");
             } else
             {
-                //Debug.Log(req.downloadHandler.text);
-                textArea.text = req.downloadHandler.text;
+                
+                strReader= new StringReader(req.downloadHandler.text);
+
+                var text = strReader.ReadToEnd().Split('\n');
+                
+                //string[] cols = text.Split(';');
+
+                textArea.text = text[1];
             }
         }));
     }
-    
+
 }

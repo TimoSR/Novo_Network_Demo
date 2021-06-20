@@ -5,7 +5,7 @@ using Mirror;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Clickable : NetworkBehaviour
+public class ClickableQR : NetworkBehaviour
 {
 
     [field: SerializeField] public UnityEvent onClick;

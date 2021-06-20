@@ -47,11 +47,12 @@ public class PlayerCameraController : NetworkBehaviour
     [Client]
     private void EndedClick()
     {
-        CmdDetectObject();
+        CmdDetectObjectQR();
+        DetectObjectMeta();
     }
 
     [Command]
-    private void CmdDetectObject()
+    private void CmdDetectObjectQR()
     {
         Ray ray = mainCamera.ScreenPointToRay(Controls.Player.TargetPosition.ReadValue<Vector2>());
         RaycastHit hit;
@@ -62,16 +63,35 @@ public class PlayerCameraController : NetworkBehaviour
             {
                 Debug.Log("3D Raycast Hit" + hit.collider.tag);
                 
-                if (hit.collider.CompareTag("QRCode") || hit.collider.CompareTag("MetaData"))
+                if (hit.collider.CompareTag("QRCode"))
                 {
-                    hit.collider.gameObject.GetComponent<Clickable>().OnClick();
-                    var id= hit.collider.gameObject.GetComponent<Clickable>().netIdentity.netId;
+                    hit.collider.gameObject.GetComponent<ClickableQR>().OnClick();
+                    var id= hit.collider.gameObject.GetComponent<ClickableQR>().netIdentity.netId;
                     Debug.Log("Net ID " + id);
                 }
             }
         }
     }
+    
+    private void DetectObjectMeta()
+    {
+        Ray ray = mainCamera.ScreenPointToRay(Controls.Player.TargetPosition.ReadValue<Vector2>());
+        RaycastHit hit;
 
+        if (Physics.Raycast(ray, out hit))
+        {
+            if (hit.collider != null)
+            {
+                Debug.Log("3D Raycast Hit" + hit.collider.tag);
+
+                if (hit.collider.CompareTag("MetaData"))
+                {
+                    hit.collider.gameObject.GetComponent<ClickableMeta>().OnClick();
+                }
+            }
+        }
+    }
+    
     [ClientCallback]
     private void OnEnable() => Controls.Enable();
     [ClientCallback]
