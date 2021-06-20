@@ -1055,6 +1055,26 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 02a172dba5ae92a4eaf8058395bb3226, type: 2}
+    - target: {fileID: 8824285020648749428, guid: 1ee8de218b1645048a3e60c56ad36fd0,
+        type: 3}
+      propertyPath: crosshair
+      value: 
+      objectReference: {fileID: 1618631633}
+    - target: {fileID: 8824285020648749428, guid: 1ee8de218b1645048a3e60c56ad36fd0,
+        type: 3}
+      propertyPath: closeButton
+      value: 
+      objectReference: {fileID: 523547215}
+    - target: {fileID: 8824285020648749428, guid: 1ee8de218b1645048a3e60c56ad36fd0,
+        type: 3}
+      propertyPath: textArea
+      value: 
+      objectReference: {fileID: 1877488428}
+    - target: {fileID: 8824285020648749428, guid: 1ee8de218b1645048a3e60c56ad36fd0,
+        type: 3}
+      propertyPath: panel
+      value: 
+      objectReference: {fileID: 1242381252}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ee8de218b1645048a3e60c56ad36fd0, type: 3}
 --- !u!4 &809659291 stripped
@@ -2049,6 +2069,26 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ed250bdb0e4de654ca49ca2a82416eb3, type: 2}
+    - target: {fileID: 8824285020648749428, guid: 1ee8de218b1645048a3e60c56ad36fd0,
+        type: 3}
+      propertyPath: panel
+      value: 
+      objectReference: {fileID: 1242381252}
+    - target: {fileID: 8824285020648749428, guid: 1ee8de218b1645048a3e60c56ad36fd0,
+        type: 3}
+      propertyPath: closeButton
+      value: 
+      objectReference: {fileID: 523547215}
+    - target: {fileID: 8824285020648749428, guid: 1ee8de218b1645048a3e60c56ad36fd0,
+        type: 3}
+      propertyPath: crosshair
+      value: 
+      objectReference: {fileID: 1618631633}
+    - target: {fileID: 8824285020648749428, guid: 1ee8de218b1645048a3e60c56ad36fd0,
+        type: 3}
+      propertyPath: textArea
+      value: 
+      objectReference: {fileID: 1877488428}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ee8de218b1645048a3e60c56ad36fd0, type: 3}
 --- !u!4 &1630702605 stripped
