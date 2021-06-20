@@ -4,7 +4,7 @@ using System.Security.Policy;
 using Mirror;
 using UnityEngine;
 
-public class TargetQR: MonoBehaviour 
+public class TargetQR: NetworkBehaviour
 {
 
     private string _objectName;
@@ -16,6 +16,7 @@ public class TargetQR: MonoBehaviour
     [SerializeField] private GameObject _originalParent = null;
     [SerializeField] private GameObject _targetChild= null;
 
+    [Client]
     public void GoToTarget()
     {
 
@@ -45,6 +46,7 @@ public class TargetQR: MonoBehaviour
 
     }
 
+    [Client]
     private void TempParent()
     {
         _local.transform.parent = null;
@@ -53,6 +55,7 @@ public class TargetQR: MonoBehaviour
 
     }
 
+    [Client]
     private void ReturnParent()
     {
         _targetChild.transform.parent = null;
