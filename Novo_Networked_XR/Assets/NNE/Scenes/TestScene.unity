@@ -616,6 +616,7 @@ MonoBehaviour:
   panel: {fileID: 1242381252}
   closeButton: {fileID: 523547215}
   crosshair: {fileID: 1618631633}
+  textArea: {fileID: 0}
 --- !u!1 &540103261
 GameObject:
   m_ObjectHideFlags: 0
@@ -3189,6 +3190,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -7168824782046093765, guid: 1ee8de218b1645048a3e60c56ad36fd0,
         type: 3}
+      propertyPath: onClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7168824782046093765, guid: 1ee8de218b1645048a3e60c56ad36fd0,
+        type: 3}
       propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8603105532733627938}
@@ -3200,6 +3206,31 @@ PrefabInstance:
     - target: {fileID: -7168824782046093765, guid: 1ee8de218b1645048a3e60c56ad36fd0,
         type: 3}
       propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: -7168824782046093765, guid: 1ee8de218b1645048a3e60c56ad36fd0,
+        type: 3}
+      propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7168824782046093765, guid: 1ee8de218b1645048a3e60c56ad36fd0,
+        type: 3}
+      propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7168824782046093765, guid: 1ee8de218b1645048a3e60c56ad36fd0,
+        type: 3}
+      propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 8603105532733627938}
+    - target: {fileID: -7168824782046093765, guid: 1ee8de218b1645048a3e60c56ad36fd0,
+        type: 3}
+      propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: GetPosts
+      objectReference: {fileID: 0}
+    - target: {fileID: -7168824782046093765, guid: 1ee8de218b1645048a3e60c56ad36fd0,
+        type: 3}
+      propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: -4445710856479073309, guid: 1ee8de218b1645048a3e60c56ad36fd0,
@@ -3282,6 +3313,11 @@ PrefabInstance:
       propertyPath: crosshair
       value: 
       objectReference: {fileID: 1618631633}
+    - target: {fileID: 8824285020648749428, guid: 1ee8de218b1645048a3e60c56ad36fd0,
+        type: 3}
+      propertyPath: textArea
+      value: 
+      objectReference: {fileID: 1877488428}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ee8de218b1645048a3e60c56ad36fd0, type: 3}
 --- !u!114 &8603105532733627938 stripped
